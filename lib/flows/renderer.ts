@@ -11,16 +11,18 @@ import type { ActorId, FlowDefinition, FlowStep } from './types';
 
 // ─── Layout constants ───────────────────────────────────────────────────────
 
-const LANE_WIDTH = 260;
-const LANE_GAP = 20;
-const STEP_MIN_HEIGHT = 140;
-const STEP_V_GAP = 30;
+const LANE_WIDTH = 360;
+const LANE_GAP = 28;
+const STEP_MIN_HEIGHT = 180;
+const STEP_V_GAP = 40;
 const HEADER_HEIGHT = 120;
 const LANE_HEADER_HEIGHT = 60;
 const MARGIN_X = 40;
 const MARGIN_TOP = 40;
-const STEP_NUMBER_COL_WIDTH = 60;
-const CARD_PADDING = 12;
+const STEP_NUMBER_COL_WIDTH = 70;
+const CARD_PADDING = 16;
+const CONTENT_WIDTH = LANE_WIDTH - CARD_PADDING * 2;
+const LINE_HEIGHT = 18;
 
 // ─── Skeleton types (loosely typed — convertToExcalidrawElements validates) ─
 
@@ -52,14 +54,18 @@ export function generateFlowElements(flow: FlowDefinition): {
     fontFamily: 1,
     strokeColor: '#D4A843',
   });
+  // Description wraps to ~1000px wide
   elements.push({
     type: 'text',
     x: MARGIN_X,
     y: MARGIN_TOP + 46,
+    width: 1100,
+    height: 48,
     text: flow.description,
     fontSize: 14,
     fontFamily: 1,
     strokeColor: '#9CA3AF',
+    autoResize: false,
   });
 
   // 3. Lane headers
@@ -148,9 +154,18 @@ export function generateFlowElements(flow: FlowDefinition): {
     // Build content text (as separate text elements, NOT bound to card —
     // bound labels would center the text instead of laying it out as lines)
     const contentLines = buildCardContentLines(step);
+    // Compute total content height accounting for text wrapping
+    let contentHeight = 0;
+    contentLines.forEach((line) => {
+      const estLines = Math.max(1, Math.ceil(line.text.length / 52));
+      contentHeight += estLines * LINE_HEIGHT + 2;
+    });
+    const noteHeight = step.note
+      ? Math.max(1, Math.ceil(step.note.length / 48)) * LINE_HEIGHT + 12
+      : 0;
     const estimatedHeight = Math.max(
       STEP_MIN_HEIGHT,
-      56 + contentLines.length * 16 + (step.note ? 24 : 0) + CARD_PADDING
+      56 + contentHeight + noteHeight + CARD_PADDING
     );
 
     // Card (rectangle with bound title label)
@@ -176,33 +191,47 @@ export function generateFlowElements(flow: FlowDefinition): {
       },
     });
 
-    // Content lines (absolute-positioned text elements under the title)
-    let contentY = stepY + 40;
+    // Content lines (absolute-positioned text elements under the title,
+    // with explicit width so long lines wrap instead of clipping)
+    let contentY = stepY + 46;
     contentLines.forEach((line) => {
+      // Rough wrap estimate: each line ~50-60 chars wide at fontSize 12
+      const estLines = Math.max(
+        1,
+        Math.ceil(line.text.length / 52)
+      );
+      const height = estLines * LINE_HEIGHT;
       elements.push({
         type: 'text',
         x: stepX + CARD_PADDING,
         y: contentY,
+        width: CONTENT_WIDTH,
+        height,
         text: line.text,
-        fontSize: line.fontSize ?? 11,
+        fontSize: line.fontSize ?? 12,
         fontFamily: line.fontFamily ?? 3,
         strokeColor: line.color ?? '#E5E7EB',
         opacity: line.opacity ?? 100,
+        autoResize: false,
       });
-      contentY += 16;
+      contentY += height + 2;
     });
 
-    // Note at bottom
+    // Note at bottom (wrapped)
     if (step.note) {
+      const noteLines = Math.max(1, Math.ceil(step.note.length / 48));
       elements.push({
         type: 'text',
         x: stepX + CARD_PADDING,
-        y: stepY + estimatedHeight - 20,
+        y: stepY + estimatedHeight - noteLines * LINE_HEIGHT - 8,
+        width: CONTENT_WIDTH,
+        height: noteLines * LINE_HEIGHT,
         text: `💡 ${step.note}`,
-        fontSize: 10,
+        fontSize: 11,
         fontFamily: 1,
         strokeColor: '#9CA3AF',
         opacity: 80,
+        autoResize: false,
       });
     }
 

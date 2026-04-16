@@ -266,25 +266,7 @@ export default function ExcalidrawWrapper({
         <ToolbarButton onClick={handleReset} label="Reset" variant="danger" />
       </div>
 
-      {/* Snapshot label — top-left */}
-      <div
-        style={{
-          position: 'absolute',
-          top: 12,
-          left: 60,
-          zIndex: 10,
-          color: '#D4A843',
-          fontFamily: 'monospace',
-          fontSize: 12,
-          background: 'rgba(15, 15, 15, 0.8)',
-          padding: '4px 8px',
-          borderRadius: 4,
-          border: '1px solid #D4A843',
-          pointerEvents: 'none',
-        }}
-      >
-        snapshot: {snapshotKey}
-      </div>
+      {/* Navigation is rendered by the parent page (server component) via NavMenu */}
     </div>
   );
 }
