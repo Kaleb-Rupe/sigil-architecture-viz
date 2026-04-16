@@ -4,29 +4,28 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { generateElements } from '@/lib/generate-elements';
 
-// Excalidraw CSS — REQUIRED for the UI (toolbar, canvas controls) to render
-// with correct sizing. Without this import, the toolbar icons render at their
-// natural SVG size (giant) and the canvas appears broken.
-import '@excalidraw/excalidraw/index.css';
+/**
+ * ExcalidrawWrapper — state + persistence layer on top of the Excalidraw
+ * canvas. Renders ExcalidrawCanvas (loaded client-side via next/dynamic
+ * because @excalidraw/excalidraw touches `window` at module load).
+ *
+ * Toolbar actions (Export/Import/Reset) are passed to ExcalidrawCanvas
+ * where they render as MainMenu items in Excalidraw's native hamburger
+ * menu — NO floating toolbar overlay.
+ */
 
-// Excalidraw uses browser APIs (canvas, window) so it must be loaded client-side only
-const Excalidraw = dynamic(
-  async () => {
-    const mod = await import('@excalidraw/excalidraw');
-    return mod.Excalidraw;
-  },
+// Load the canvas component only on the client
+const ExcalidrawCanvas = dynamic(
+  () => import('@/components/ExcalidrawCanvas'),
   { ssr: false }
 );
 
 // ─── Persistence ────────────────────────────────────────────────────────────
-// Auto-save to localStorage every 2 seconds of inactivity.
-// Key is namespaced so different snapshots don't collide.
 
 const STORAGE_KEY_PREFIX = 'sigil-arch-viz:';
 
 interface Snapshot {
-  /** If "skeleton", elements are ExcalidrawElementSkeleton[] that need
-   *  convertToExcalidrawElements(). If absent, elements are already qualified. */
+  /** If "skeleton", elements need convertToExcalidrawElements(). */
   _format?: 'skeleton';
   elements: unknown[];
   appState: {
@@ -58,9 +57,9 @@ function saveSnapshot(key: string, snapshot: Snapshot) {
 // ─── Component ──────────────────────────────────────────────────────────────
 
 export interface ExcalidrawWrapperProps {
-  /** Snapshot identifier. Defaults to "canonical" (the auto-generated architecture). */
+  /** Snapshot identifier. Defaults to "canonical". */
   snapshotKey?: string;
-  /** Optional pre-loaded elements (used by /s/[name] routes). */
+  /** Optional pre-loaded snapshot (used by /s/[name] routes). */
   initialSnapshot?: Snapshot;
 }
 
@@ -68,20 +67,23 @@ export default function ExcalidrawWrapper({
   snapshotKey = 'canonical',
   initialSnapshot,
 }: ExcalidrawWrapperProps) {
-  // Generate canonical architecture from current code data
+  // Canonical architecture rendered from current code data
   const canonical = useMemo(() => generateElements(), []);
 
-  // Load persisted edits OR initial snapshot OR canonical
   const [initialData, setInitialData] = useState<{
     elements: unknown[];
-    appState: { theme: 'dark'; viewBackgroundColor: string; currentItemFontFamily: number };
+    appState: {
+      theme: 'dark';
+      viewBackgroundColor: string;
+      currentItemFontFamily: number;
+    };
   } | null>(null);
 
+  // Load elements: priority = initialSnapshot > localStorage > canonical
   useEffect(() => {
     let cancelled = false;
 
     async function load() {
-      // 1. Pre-loaded snapshot takes precedence (used by /s/[name] routes)
       if (initialSnapshot) {
         const elements =
           initialSnapshot._format === 'skeleton'
@@ -100,7 +102,6 @@ export default function ExcalidrawWrapper({
         return;
       }
 
-      // 2. Try localStorage
       const persisted = loadSnapshot(snapshotKey);
       if (persisted) {
         const elements =
@@ -120,7 +121,6 @@ export default function ExcalidrawWrapper({
         return;
       }
 
-      // 3. Fall back to canonical (already fully-qualified elements)
       if (cancelled) return;
       setInitialData({
         elements: canonical.elements,
@@ -138,9 +138,6 @@ export default function ExcalidrawWrapper({
     };
   }, [snapshotKey, initialSnapshot, canonical.elements]);
 
-  // Client-side conversion of skeletons → Excalidraw elements.
-  // @excalidraw/excalidraw can't be imported at module load because it
-  // touches `window`, so we dynamically import inside this helper.
   async function convertSkeletonsToElements(
     skeletons: unknown[]
   ): Promise<unknown[]> {
@@ -150,7 +147,7 @@ export default function ExcalidrawWrapper({
     }) as unknown[];
   }
 
-  // Debounced auto-save
+  // Auto-save (2s debounce)
   const saveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const handleChange = useCallback(
     (elements: readonly unknown[], appState: unknown) => {
@@ -169,8 +166,9 @@ export default function ExcalidrawWrapper({
     [snapshotKey]
   );
 
-  // ─── Toolbar actions ──────────────────────────────────────────────────────
-  const handleExport = useCallback(() => {
+  // ─── MainMenu actions ─────────────────────────────────────────────────────
+
+  const handleExportJSON = useCallback(() => {
     const persisted = loadSnapshot(snapshotKey);
     const snapshot = persisted ?? {
       elements: canonical.elements,
@@ -190,7 +188,7 @@ export default function ExcalidrawWrapper({
     URL.revokeObjectURL(url);
   }, [snapshotKey, canonical.elements]);
 
-  const handleImport = useCallback(() => {
+  const handleImportJSON = useCallback(() => {
     const input = document.createElement('input');
     input.type = 'file';
     input.accept = '.json,.excalidraw';
@@ -211,7 +209,8 @@ export default function ExcalidrawWrapper({
   }, [snapshotKey]);
 
   const handleReset = useCallback(() => {
-    if (!confirm('Reset to the canonical architecture? Your edits will be lost.')) return;
+    if (!confirm('Reset to the canonical architecture? Your edits will be lost.'))
+      return;
     localStorage.removeItem(STORAGE_KEY_PREFIX + snapshotKey);
     window.location.reload();
   }, [snapshotKey]);
@@ -236,70 +235,15 @@ export default function ExcalidrawWrapper({
 
   return (
     <div style={{ width: '100%', height: '100%', position: 'relative' }}>
-      <Excalidraw
-        initialData={{
-          elements: initialData.elements as never,
-          appState: initialData.appState,
-        }}
-        UIOptions={{
-          canvasActions: {
-            saveToActiveFile: false,
-          },
-        }}
-        onChange={handleChange as never}
+      <ExcalidrawCanvas
+        elements={initialData.elements}
+        appState={initialData.appState}
+        onChange={handleChange}
+        onExportJSON={handleExportJSON}
+        onImportJSON={handleImportJSON}
+        onReset={handleReset}
       />
-
-      {/* Toolbar overlay — bottom-right, away from Excalidraw's native Library + help buttons */}
-      <div
-        style={{
-          position: 'absolute',
-          bottom: 12,
-          right: 60,
-          display: 'flex',
-          gap: 8,
-          zIndex: 10,
-          pointerEvents: 'auto',
-        }}
-      >
-        <ToolbarButton onClick={handleExport} label="Export JSON" />
-        <ToolbarButton onClick={handleImport} label="Import JSON" />
-        <ToolbarButton onClick={handleReset} label="Reset" variant="danger" />
-      </div>
-
-      {/* Navigation is rendered by the parent page (server component) via NavMenu */}
+      {/* Navigation is rendered by the parent page via NavMenu */}
     </div>
-  );
-}
-
-// ─── Toolbar button component ────────────────────────────────────────────────
-
-function ToolbarButton({
-  onClick,
-  label,
-  variant = 'default',
-}: {
-  onClick: () => void;
-  label: string;
-  variant?: 'default' | 'danger';
-}) {
-  const bg =
-    variant === 'danger' ? 'rgba(239, 68, 68, 0.15)' : 'rgba(212, 168, 67, 0.15)';
-  const border = variant === 'danger' ? '#ef4444' : '#D4A843';
-  return (
-    <button
-      onClick={onClick}
-      style={{
-        background: bg,
-        border: `1px solid ${border}`,
-        color: border,
-        padding: '6px 12px',
-        fontFamily: 'monospace',
-        fontSize: 12,
-        cursor: 'pointer',
-        borderRadius: 4,
-      }}
-    >
-      {label}
-    </button>
   );
 }
