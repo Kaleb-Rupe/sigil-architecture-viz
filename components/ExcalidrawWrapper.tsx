@@ -4,6 +4,11 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { generateElements } from '@/lib/generate-elements';
 
+// Excalidraw CSS — REQUIRED for the UI (toolbar, canvas controls) to render
+// with correct sizing. Without this import, the toolbar icons render at their
+// natural SVG size (giant) and the canvas appears broken.
+import '@excalidraw/excalidraw/index.css';
+
 // Excalidraw uses browser APIs (canvas, window) so it must be loaded client-side only
 const Excalidraw = dynamic(
   async () => {
