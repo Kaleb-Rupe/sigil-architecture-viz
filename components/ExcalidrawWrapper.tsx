@@ -210,12 +210,12 @@ export default function ExcalidrawWrapper({
         onChange={handleChange as never}
       />
 
-      {/* Toolbar overlay — top-right */}
+      {/* Toolbar overlay — bottom-right, away from Excalidraw's native Library + help buttons */}
       <div
         style={{
           position: 'absolute',
-          top: 12,
-          right: 12,
+          bottom: 12,
+          right: 60,
           display: 'flex',
           gap: 8,
           zIndex: 10,
