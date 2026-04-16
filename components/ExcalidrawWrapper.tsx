@@ -25,6 +25,9 @@ const Excalidraw = dynamic(
 const STORAGE_KEY_PREFIX = 'sigil-arch-viz:';
 
 interface Snapshot {
+  /** If "skeleton", elements are ExcalidrawElementSkeleton[] that need
+   *  convertToExcalidrawElements(). If absent, elements are already qualified. */
+  _format?: 'skeleton';
   elements: unknown[];
   appState: {
     viewBackgroundColor?: string;
@@ -75,41 +78,77 @@ export default function ExcalidrawWrapper({
   } | null>(null);
 
   useEffect(() => {
-    // 1. Pre-loaded snapshot takes precedence (used by /s/[name] routes)
-    if (initialSnapshot) {
+    let cancelled = false;
+
+    async function load() {
+      // 1. Pre-loaded snapshot takes precedence (used by /s/[name] routes)
+      if (initialSnapshot) {
+        const elements =
+          initialSnapshot._format === 'skeleton'
+            ? await convertSkeletonsToElements(initialSnapshot.elements)
+            : initialSnapshot.elements;
+        if (cancelled) return;
+        setInitialData({
+          elements,
+          appState: {
+            theme: 'dark',
+            viewBackgroundColor:
+              initialSnapshot.appState.viewBackgroundColor ?? '#0F0F0F',
+            currentItemFontFamily: 1,
+          },
+        });
+        return;
+      }
+
+      // 2. Try localStorage
+      const persisted = loadSnapshot(snapshotKey);
+      if (persisted) {
+        const elements =
+          persisted._format === 'skeleton'
+            ? await convertSkeletonsToElements(persisted.elements)
+            : persisted.elements;
+        if (cancelled) return;
+        setInitialData({
+          elements,
+          appState: {
+            theme: 'dark',
+            viewBackgroundColor:
+              persisted.appState.viewBackgroundColor ?? '#0F0F0F',
+            currentItemFontFamily: 1,
+          },
+        });
+        return;
+      }
+
+      // 3. Fall back to canonical (already fully-qualified elements)
+      if (cancelled) return;
       setInitialData({
-        elements: initialSnapshot.elements,
+        elements: canonical.elements,
         appState: {
           theme: 'dark',
-          viewBackgroundColor: initialSnapshot.appState.viewBackgroundColor ?? '#0F0F0F',
+          viewBackgroundColor: '#0F0F0F',
           currentItemFontFamily: 1,
         },
       });
-      return;
     }
-    // 2. Try localStorage
-    const persisted = loadSnapshot(snapshotKey);
-    if (persisted) {
-      setInitialData({
-        elements: persisted.elements,
-        appState: {
-          theme: 'dark',
-          viewBackgroundColor: persisted.appState.viewBackgroundColor ?? '#0F0F0F',
-          currentItemFontFamily: 1,
-        },
-      });
-      return;
-    }
-    // 3. Fall back to canonical
-    setInitialData({
-      elements: canonical.elements,
-      appState: {
-        theme: 'dark',
-        viewBackgroundColor: '#0F0F0F',
-        currentItemFontFamily: 1,
-      },
-    });
+
+    load();
+    return () => {
+      cancelled = true;
+    };
   }, [snapshotKey, initialSnapshot, canonical.elements]);
+
+  // Client-side conversion of skeletons → Excalidraw elements.
+  // @excalidraw/excalidraw can't be imported at module load because it
+  // touches `window`, so we dynamically import inside this helper.
+  async function convertSkeletonsToElements(
+    skeletons: unknown[]
+  ): Promise<unknown[]> {
+    const mod = await import('@excalidraw/excalidraw');
+    return mod.convertToExcalidrawElements(skeletons as never, {
+      regenerateIds: true,
+    }) as unknown[];
+  }
 
   // Debounced auto-save
   const saveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);

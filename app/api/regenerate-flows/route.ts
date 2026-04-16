@@ -9,7 +9,10 @@ import { CREATE_VAULT_FLOW } from '@/lib/flows/definitions/create-vault';
 /**
  * Dev-only route to regenerate all flow snapshots.
  * Hit GET /api/regenerate-flows while `pnpm dev` is running.
- * Writes snapshots/flow-*.excalidraw.json for every defined flow.
+ *
+ * Saves SKELETON elements — ExcalidrawWrapper (client-side) runs
+ * convertToExcalidrawElements() at render time. We can't run the convert
+ * here because @excalidraw/excalidraw touches `window` at module load.
  */
 
 const FLOWS: FlowDefinition[] = [CREATE_VAULT_FLOW];
@@ -27,6 +30,8 @@ export async function GET() {
   for (const flow of FLOWS) {
     const { elements } = generateFlowElements(flow);
     const snapshot = {
+      // Marker so ExcalidrawWrapper knows to run convertToExcalidrawElements
+      _format: 'skeleton',
       elements,
       appState: { viewBackgroundColor: '#0F0F0F' },
       savedAt: new Date().toISOString(),
