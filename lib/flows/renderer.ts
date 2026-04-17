@@ -76,7 +76,7 @@ export function generateFlowElements(flow: FlowDefinition): {
     const actor = ACTORS[actorId];
     const laneX = lanesStartX + idx * (LANE_WIDTH + LANE_GAP);
 
-    // Lane header rect (with bound label)
+    // Lane header rect (with bound label) — clean lines, solid fill for readability
     const headerId = `lane-header-${actor.id}`;
     elements.push({
       type: 'rectangle',
@@ -86,15 +86,15 @@ export function generateFlowElements(flow: FlowDefinition): {
       width: LANE_WIDTH,
       height: LANE_HEADER_HEIGHT,
       strokeColor: actor.color,
-      backgroundColor: actor.color + '33',
+      backgroundColor: actor.color + '66', // ~40% alpha — solid enough to read
       fillStyle: 'solid',
       strokeWidth: 2,
-      roughness: 1,
+      roughness: 0, // clean, not sketchy
       roundness: { type: 3 },
       label: {
         text: actor.label,
-        fontSize: 18,
-        strokeColor: actor.color,
+        fontSize: 20,
+        strokeColor: '#FFFFFF', // white text on colored background
       },
     });
 
@@ -129,7 +129,7 @@ export function generateFlowElements(flow: FlowDefinition): {
     const stepY =
       stepsStartY + (step.number - 1) * (STEP_MIN_HEIGHT + STEP_V_GAP);
 
-    // Step number circle (left gutter, with bound label)
+    // Step number circle (left gutter, with bound label) — solid gold
     const numId = `step-num-${step.number}`;
     elements.push({
       type: 'rectangle',
@@ -139,15 +139,15 @@ export function generateFlowElements(flow: FlowDefinition): {
       width: 50,
       height: 50,
       strokeColor: '#D4A843',
-      backgroundColor: '#D4A84333',
+      backgroundColor: '#D4A843', // solid gold for prominence
       fillStyle: 'solid',
       strokeWidth: 2,
-      roughness: 1,
+      roughness: 0,
       roundness: { type: 3 },
       label: {
         text: String(step.number),
         fontSize: 24,
-        strokeColor: '#D4A843',
+        strokeColor: '#0F0F0F', // dark text on gold
       },
     });
 
@@ -168,7 +168,7 @@ export function generateFlowElements(flow: FlowDefinition): {
       56 + contentHeight + noteHeight + CARD_PADDING
     );
 
-    // Card (rectangle with bound title label)
+    // Card (rectangle with bound title label) — much more visible tint
     const cardId = `step-card-${step.number}`;
     elements.push({
       type: 'rectangle',
@@ -178,15 +178,15 @@ export function generateFlowElements(flow: FlowDefinition): {
       width: LANE_WIDTH,
       height: estimatedHeight,
       strokeColor: actor.color,
-      backgroundColor: actor.color + '1A',
+      backgroundColor: actor.color + '33', // ~20% alpha — readable on dark
       fillStyle: 'solid',
-      strokeWidth: 1.5,
-      roughness: 1,
+      strokeWidth: 2,
+      roughness: 0, // clean for readability
       roundness: { type: 3 },
       label: {
         text: step.title,
-        fontSize: 14,
-        strokeColor: actor.color,
+        fontSize: 15,
+        strokeColor: '#FFFFFF', // white title for high contrast
         verticalAlign: 'top',
       },
     });
@@ -244,7 +244,9 @@ export function generateFlowElements(flow: FlowDefinition): {
     });
   });
 
-  // 5. Arrows between steps
+  // 5. Arrows between steps — bind source/target, let Excalidraw auto-route.
+  // DO NOT pass manual points/width/height — that fights the auto-router
+  // and causes arrows to shoot off into empty space.
   flow.steps.forEach((step) => {
     const nextList = Array.isArray(step.next)
       ? step.next
@@ -263,13 +265,11 @@ export function generateFlowElements(flow: FlowDefinition): {
 
       elements.push({
         type: 'arrow',
-        x: from.x + from.width / 2,
-        y: from.y + from.height,
-        width: Math.abs(to.x + to.width / 2 - (from.x + from.width / 2)) + 10,
-        height: Math.abs(to.y - (from.y + from.height)) + 10,
+        x: from.x,
+        y: from.y,
         strokeColor: '#D4A843',
         strokeWidth: 2,
-        roughness: 1,
+        roughness: 0,
         start: { id: from.id },
         end: { id: to.id },
       });
@@ -294,7 +294,12 @@ function buildCardContentLines(step: FlowStep): ContentLine[] {
 
   if (step.items && step.items.length > 0) {
     step.items.forEach((item) => {
-      lines.push({ text: `• ${item}`, fontSize: 11, fontFamily: 1 });
+      lines.push({
+        text: `• ${item}`,
+        fontSize: 12,
+        fontFamily: 1,
+        color: '#F3F4F6', // near-white for legibility
+      });
     });
     lines.push({ text: ' ', fontSize: 4 });
   }

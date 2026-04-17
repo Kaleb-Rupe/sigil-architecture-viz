@@ -30,17 +30,17 @@
       "width": 360,
       "height": 60,
       "strokeColor": "#D4A843",
-      "backgroundColor": "#D4A84333",
+      "backgroundColor": "#D4A84366",
       "fillStyle": "solid",
       "strokeWidth": 2,
-      "roughness": 1,
+      "roughness": 0,
       "roundness": {
         "type": 3
       },
       "label": {
         "text": "Vault Owner",
-        "fontSize": 18,
-        "strokeColor": "#D4A843"
+        "fontSize": 20,
+        "strokeColor": "#FFFFFF"
       }
     },
     {
@@ -61,17 +61,17 @@
       "width": 360,
       "height": 60,
       "strokeColor": "#3B82F6",
-      "backgroundColor": "#3B82F633",
+      "backgroundColor": "#3B82F666",
       "fillStyle": "solid",
       "strokeWidth": 2,
-      "roughness": 1,
+      "roughness": 0,
       "roundness": {
         "type": 3
       },
       "label": {
         "text": "SDK",
-        "fontSize": 18,
-        "strokeColor": "#3B82F6"
+        "fontSize": 20,
+        "strokeColor": "#FFFFFF"
       }
     },
     {
@@ -92,17 +92,17 @@
       "width": 360,
       "height": 60,
       "strokeColor": "#10B981",
-      "backgroundColor": "#10B98133",
+      "backgroundColor": "#10B98166",
       "fillStyle": "solid",
       "strokeWidth": 2,
-      "roughness": 1,
+      "roughness": 0,
       "roundness": {
         "type": 3
       },
       "label": {
         "text": "On-Chain",
-        "fontSize": 18,
-        "strokeColor": "#10B981"
+        "fontSize": 20,
+        "strokeColor": "#FFFFFF"
       }
     },
     {
@@ -123,17 +123,17 @@
       "width": 360,
       "height": 60,
       "strokeColor": "#F59E0B",
-      "backgroundColor": "#F59E0B33",
+      "backgroundColor": "#F59E0B66",
       "fillStyle": "solid",
       "strokeWidth": 2,
-      "roughness": 1,
+      "roughness": 0,
       "roundness": {
         "type": 3
       },
       "label": {
         "text": "Events",
-        "fontSize": 18,
-        "strokeColor": "#F59E0B"
+        "fontSize": 20,
+        "strokeColor": "#FFFFFF"
       }
     },
     {
@@ -154,17 +154,17 @@
       "width": 50,
       "height": 50,
       "strokeColor": "#D4A843",
-      "backgroundColor": "#D4A84333",
+      "backgroundColor": "#D4A843",
       "fillStyle": "solid",
       "strokeWidth": 2,
-      "roughness": 1,
+      "roughness": 0,
       "roundness": {
         "type": 3
       },
       "label": {
         "text": "1",
         "fontSize": 24,
-        "strokeColor": "#D4A843"
+        "strokeColor": "#0F0F0F"
       }
     },
     {
@@ -175,17 +175,17 @@
       "width": 360,
       "height": 218,
       "strokeColor": "#D4A843",
-      "backgroundColor": "#D4A8431A",
+      "backgroundColor": "#D4A84333",
       "fillStyle": "solid",
-      "strokeWidth": 1.5,
-      "roughness": 1,
+      "strokeWidth": 2,
+      "roughness": 0,
       "roundness": {
         "type": 3
       },
       "label": {
         "text": "Intent: \"I need a vault for my agent\"",
-        "fontSize": 14,
-        "strokeColor": "#D4A843",
+        "fontSize": 15,
+        "strokeColor": "#FFFFFF",
         "verticalAlign": "top"
       }
     },
@@ -196,9 +196,9 @@
       "width": 328,
       "height": 18,
       "text": "• Owner has a wallet (Phantom, Solflare, etc.)",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -209,9 +209,9 @@
       "width": 328,
       "height": 36,
       "text": "• Owner has an agent pubkey (generated locally, or from Turnkey)",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -222,9 +222,9 @@
       "width": 328,
       "height": 18,
       "text": "• Owner has SOL for rent (~0.03 SOL per vault)",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -262,17 +262,17 @@
       "width": 50,
       "height": 50,
       "strokeColor": "#D4A843",
-      "backgroundColor": "#D4A84333",
+      "backgroundColor": "#D4A843",
       "fillStyle": "solid",
       "strokeWidth": 2,
-      "roughness": 1,
+      "roughness": 0,
       "roundness": {
         "type": 3
       },
       "label": {
         "text": "2",
         "fontSize": 24,
-        "strokeColor": "#D4A843"
+        "strokeColor": "#0F0F0F"
       }
     },
     {
@@ -283,17 +283,17 @@
       "width": 360,
       "height": 220,
       "strokeColor": "#D4A843",
-      "backgroundColor": "#D4A8431A",
+      "backgroundColor": "#D4A84333",
       "fillStyle": "solid",
-      "strokeWidth": 1.5,
-      "roughness": 1,
+      "strokeWidth": 2,
+      "roughness": 0,
       "roundness": {
         "type": 3
       },
       "label": {
         "text": "Decide vault config",
-        "fontSize": 14,
-        "strokeColor": "#D4A843",
+        "fontSize": 15,
+        "strokeColor": "#FFFFFF",
         "verticalAlign": "top"
       }
     },
@@ -304,9 +304,9 @@
       "width": 328,
       "height": 18,
       "text": "• Choose daily cap (default: $500)",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -317,9 +317,9 @@
       "width": 328,
       "height": 18,
       "text": "• Choose per-agent spending limit (default: $100)",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -330,9 +330,9 @@
       "width": 328,
       "height": 18,
       "text": "• Pick agent public key",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -343,9 +343,9 @@
       "width": 328,
       "height": 18,
       "text": "• Choose allowed protocols (Jupiter only, or all)",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -383,17 +383,17 @@
       "width": 50,
       "height": 50,
       "strokeColor": "#D4A843",
-      "backgroundColor": "#D4A84333",
+      "backgroundColor": "#D4A843",
       "fillStyle": "solid",
       "strokeWidth": 2,
-      "roughness": 1,
+      "roughness": 0,
       "roundness": {
         "type": 3
       },
       "label": {
         "text": "3",
         "fontSize": 24,
-        "strokeColor": "#D4A843"
+        "strokeColor": "#0F0F0F"
       }
     },
     {
@@ -404,17 +404,17 @@
       "width": 360,
       "height": 180,
       "strokeColor": "#3B82F6",
-      "backgroundColor": "#3B82F61A",
+      "backgroundColor": "#3B82F633",
       "fillStyle": "solid",
-      "strokeWidth": 1.5,
-      "roughness": 1,
+      "strokeWidth": 2,
+      "roughness": 0,
       "roundness": {
         "type": 3
       },
       "label": {
         "text": "Call createAndSendVault()",
-        "fontSize": 14,
-        "strokeColor": "#3B82F6",
+        "fontSize": 15,
+        "strokeColor": "#FFFFFF",
         "verticalAlign": "top"
       }
     },
@@ -425,9 +425,9 @@
       "width": 328,
       "height": 18,
       "text": "• Validates config (caps > 0, capability tier valid)",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -438,9 +438,9 @@
       "width": 328,
       "height": 18,
       "text": "• Derives PDAs client-side (no RPC)",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -451,9 +451,9 @@
       "width": 328,
       "height": 18,
       "text": "• Resolves next vault_id for this owner",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -491,17 +491,17 @@
       "width": 50,
       "height": 50,
       "strokeColor": "#D4A843",
-      "backgroundColor": "#D4A84333",
+      "backgroundColor": "#D4A843",
       "fillStyle": "solid",
       "strokeWidth": 2,
-      "roughness": 1,
+      "roughness": 0,
       "roundness": {
         "type": 3
       },
       "label": {
         "text": "4",
         "fontSize": 24,
-        "strokeColor": "#D4A843"
+        "strokeColor": "#0F0F0F"
       }
     },
     {
@@ -512,17 +512,17 @@
       "width": 360,
       "height": 230,
       "strokeColor": "#3B82F6",
-      "backgroundColor": "#3B82F61A",
+      "backgroundColor": "#3B82F633",
       "fillStyle": "solid",
-      "strokeWidth": 1.5,
-      "roughness": 1,
+      "strokeWidth": 2,
+      "roughness": 0,
       "roundness": {
         "type": 3
       },
       "label": {
         "text": "Build 2 instructions",
-        "fontSize": 14,
-        "strokeColor": "#3B82F6",
+        "fontSize": 15,
+        "strokeColor": "#FFFFFF",
         "verticalAlign": "top"
       }
     },
@@ -533,9 +533,9 @@
       "width": 328,
       "height": 18,
       "text": "• Builds initialize_vault ix with all policy fields",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -546,9 +546,9 @@
       "width": 328,
       "height": 18,
       "text": "• Builds register_agent ix for the first agent",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -559,9 +559,9 @@
       "width": 328,
       "height": 36,
       "text": "• Both instructions will execute atomically in one tx",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -625,17 +625,17 @@
       "width": 50,
       "height": 50,
       "strokeColor": "#D4A843",
-      "backgroundColor": "#D4A84333",
+      "backgroundColor": "#D4A843",
       "fillStyle": "solid",
       "strokeWidth": 2,
-      "roughness": 1,
+      "roughness": 0,
       "roundness": {
         "type": 3
       },
       "label": {
         "text": "5",
         "fontSize": 24,
-        "strokeColor": "#D4A843"
+        "strokeColor": "#0F0F0F"
       }
     },
     {
@@ -646,17 +646,17 @@
       "width": 360,
       "height": 208,
       "strokeColor": "#3B82F6",
-      "backgroundColor": "#3B82F61A",
+      "backgroundColor": "#3B82F633",
       "fillStyle": "solid",
-      "strokeWidth": 1.5,
-      "roughness": 1,
+      "strokeWidth": 2,
+      "roughness": 0,
       "roundness": {
         "type": 3
       },
       "label": {
         "text": "Compose owner transaction",
-        "fontSize": 14,
-        "strokeColor": "#3B82F6",
+        "fontSize": 15,
+        "strokeColor": "#FFFFFF",
         "verticalAlign": "top"
       }
     },
@@ -667,9 +667,9 @@
       "width": 328,
       "height": 18,
       "text": "• Sets compute budget (200k CU)",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -680,9 +680,9 @@
       "width": 328,
       "height": 18,
       "text": "• Fetches recent blockhash",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -693,9 +693,9 @@
       "width": 328,
       "height": 36,
       "text": "• Attaches Sigil ALT (address lookup table) for size efficiency",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -733,17 +733,17 @@
       "width": 50,
       "height": 50,
       "strokeColor": "#D4A843",
-      "backgroundColor": "#D4A84333",
+      "backgroundColor": "#D4A843",
       "fillStyle": "solid",
       "strokeWidth": 2,
-      "roughness": 1,
+      "roughness": 0,
       "roundness": {
         "type": 3
       },
       "label": {
         "text": "6",
         "fontSize": 24,
-        "strokeColor": "#D4A843"
+        "strokeColor": "#0F0F0F"
       }
     },
     {
@@ -754,17 +754,17 @@
       "width": 360,
       "height": 180,
       "strokeColor": "#D4A843",
-      "backgroundColor": "#D4A8431A",
+      "backgroundColor": "#D4A84333",
       "fillStyle": "solid",
-      "strokeWidth": 1.5,
-      "roughness": 1,
+      "strokeWidth": 2,
+      "roughness": 0,
       "roundness": {
         "type": 3
       },
       "label": {
         "text": "Sign transaction",
-        "fontSize": 14,
-        "strokeColor": "#D4A843",
+        "fontSize": 15,
+        "strokeColor": "#FFFFFF",
         "verticalAlign": "top"
       }
     },
@@ -775,9 +775,9 @@
       "width": 328,
       "height": 36,
       "text": "• Wallet prompt shows: \"Create vault + register agent\"",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -788,9 +788,9 @@
       "width": 328,
       "height": 18,
       "text": "• Single signature covers both on-chain instructions",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -801,9 +801,9 @@
       "width": 328,
       "height": 18,
       "text": "• Tx is atomic — either both succeed or both revert",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -828,17 +828,17 @@
       "width": 50,
       "height": 50,
       "strokeColor": "#D4A843",
-      "backgroundColor": "#D4A84333",
+      "backgroundColor": "#D4A843",
       "fillStyle": "solid",
       "strokeWidth": 2,
-      "roughness": 1,
+      "roughness": 0,
       "roundness": {
         "type": 3
       },
       "label": {
         "text": "7",
         "fontSize": 24,
-        "strokeColor": "#D4A843"
+        "strokeColor": "#0F0F0F"
       }
     },
     {
@@ -849,17 +849,17 @@
       "width": 360,
       "height": 190,
       "strokeColor": "#3B82F6",
-      "backgroundColor": "#3B82F61A",
+      "backgroundColor": "#3B82F633",
       "fillStyle": "solid",
-      "strokeWidth": 1.5,
-      "roughness": 1,
+      "strokeWidth": 2,
+      "roughness": 0,
       "roundness": {
         "type": 3
       },
       "label": {
         "text": "Submit to RPC",
-        "fontSize": 14,
-        "strokeColor": "#3B82F6",
+        "fontSize": 15,
+        "strokeColor": "#FFFFFF",
         "verticalAlign": "top"
       }
     },
@@ -870,9 +870,9 @@
       "width": 328,
       "height": 18,
       "text": "• sendAndConfirmTransaction()",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -883,9 +883,9 @@
       "width": 328,
       "height": 18,
       "text": "• Transaction serialized + sent to Solana validator",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -896,9 +896,9 @@
       "width": 328,
       "height": 36,
       "text": "• Tx signature returned immediately (not yet confirmed)",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -936,17 +936,17 @@
       "width": 50,
       "height": 50,
       "strokeColor": "#D4A843",
-      "backgroundColor": "#D4A84333",
+      "backgroundColor": "#D4A843",
       "fillStyle": "solid",
       "strokeWidth": 2,
-      "roughness": 1,
+      "roughness": 0,
       "roundness": {
         "type": 3
       },
       "label": {
         "text": "8",
         "fontSize": 24,
-        "strokeColor": "#D4A843"
+        "strokeColor": "#0F0F0F"
       }
     },
     {
@@ -957,17 +957,17 @@
       "width": 360,
       "height": 230,
       "strokeColor": "#10B981",
-      "backgroundColor": "#10B9811A",
+      "backgroundColor": "#10B98133",
       "fillStyle": "solid",
-      "strokeWidth": 1.5,
-      "roughness": 1,
+      "strokeWidth": 2,
+      "roughness": 0,
       "roundness": {
         "type": 3
       },
       "label": {
         "text": "initialize_vault executes",
-        "fontSize": 14,
-        "strokeColor": "#10B981",
+        "fontSize": 15,
+        "strokeColor": "#FFFFFF",
         "verticalAlign": "top"
       }
     },
@@ -978,9 +978,9 @@
       "width": 328,
       "height": 18,
       "text": "• Validates owner signature",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -991,9 +991,9 @@
       "width": 328,
       "height": 18,
       "text": "• Allocates 4 PDAs with rent",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -1004,9 +1004,9 @@
       "width": 328,
       "height": 18,
       "text": "• Stores policy config + spending caps",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -1070,17 +1070,17 @@
       "width": 50,
       "height": 50,
       "strokeColor": "#D4A843",
-      "backgroundColor": "#D4A84333",
+      "backgroundColor": "#D4A843",
       "fillStyle": "solid",
       "strokeWidth": 2,
-      "roughness": 1,
+      "roughness": 0,
       "roundness": {
         "type": 3
       },
       "label": {
         "text": "9",
         "fontSize": 24,
-        "strokeColor": "#D4A843"
+        "strokeColor": "#0F0F0F"
       }
     },
     {
@@ -1091,17 +1091,17 @@
       "width": 360,
       "height": 180,
       "strokeColor": "#F59E0B",
-      "backgroundColor": "#F59E0B1A",
+      "backgroundColor": "#F59E0B33",
       "fillStyle": "solid",
-      "strokeWidth": 1.5,
-      "roughness": 1,
+      "strokeWidth": 2,
+      "roughness": 0,
       "roundness": {
         "type": 3
       },
       "label": {
         "text": "VaultCreated emitted",
-        "fontSize": 14,
-        "strokeColor": "#F59E0B",
+        "fontSize": 15,
+        "strokeColor": "#FFFFFF",
         "verticalAlign": "top"
       }
     },
@@ -1112,9 +1112,9 @@
       "width": 328,
       "height": 18,
       "text": "• vault, owner, policyVersion, timestamp",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -1152,17 +1152,17 @@
       "width": 50,
       "height": 50,
       "strokeColor": "#D4A843",
-      "backgroundColor": "#D4A84333",
+      "backgroundColor": "#D4A843",
       "fillStyle": "solid",
       "strokeWidth": 2,
-      "roughness": 1,
+      "roughness": 0,
       "roundness": {
         "type": 3
       },
       "label": {
         "text": "10",
         "fontSize": 24,
-        "strokeColor": "#D4A843"
+        "strokeColor": "#0F0F0F"
       }
     },
     {
@@ -1173,17 +1173,17 @@
       "width": 360,
       "height": 278,
       "strokeColor": "#10B981",
-      "backgroundColor": "#10B9811A",
+      "backgroundColor": "#10B98133",
       "fillStyle": "solid",
-      "strokeWidth": 1.5,
-      "roughness": 1,
+      "strokeWidth": 2,
+      "roughness": 0,
       "roundness": {
         "type": 3
       },
       "label": {
         "text": "register_agent executes",
-        "fontSize": 14,
-        "strokeColor": "#10B981",
+        "fontSize": 15,
+        "strokeColor": "#FFFFFF",
         "verticalAlign": "top"
       }
     },
@@ -1194,9 +1194,9 @@
       "width": 328,
       "height": 18,
       "text": "• Pushes AgentEntry into vault.agents vector",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -1207,9 +1207,9 @@
       "width": 328,
       "height": 18,
       "text": "• Claims overlay slot for per-agent tracking",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -1220,9 +1220,9 @@
       "width": 328,
       "height": 18,
       "text": "• Validates capability tier (2 = Operator)",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -1299,17 +1299,17 @@
       "width": 50,
       "height": 50,
       "strokeColor": "#D4A843",
-      "backgroundColor": "#D4A84333",
+      "backgroundColor": "#D4A843",
       "fillStyle": "solid",
       "strokeWidth": 2,
-      "roughness": 1,
+      "roughness": 0,
       "roundness": {
         "type": 3
       },
       "label": {
         "text": "11",
         "fontSize": 24,
-        "strokeColor": "#D4A843"
+        "strokeColor": "#0F0F0F"
       }
     },
     {
@@ -1320,17 +1320,17 @@
       "width": 360,
       "height": 180,
       "strokeColor": "#F59E0B",
-      "backgroundColor": "#F59E0B1A",
+      "backgroundColor": "#F59E0B33",
       "fillStyle": "solid",
-      "strokeWidth": 1.5,
-      "roughness": 1,
+      "strokeWidth": 2,
+      "roughness": 0,
       "roundness": {
         "type": 3
       },
       "label": {
         "text": "AgentRegistered emitted",
-        "fontSize": 14,
-        "strokeColor": "#F59E0B",
+        "fontSize": 15,
+        "strokeColor": "#FFFFFF",
         "verticalAlign": "top"
       }
     },
@@ -1341,9 +1341,9 @@
       "width": 328,
       "height": 18,
       "text": "• vault, agent, capability, spendingLimit",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -1381,17 +1381,17 @@
       "width": 50,
       "height": 50,
       "strokeColor": "#D4A843",
-      "backgroundColor": "#D4A84333",
+      "backgroundColor": "#D4A843",
       "fillStyle": "solid",
       "strokeWidth": 2,
-      "roughness": 1,
+      "roughness": 0,
       "roundness": {
         "type": 3
       },
       "label": {
         "text": "12",
         "fontSize": 24,
-        "strokeColor": "#D4A843"
+        "strokeColor": "#0F0F0F"
       }
     },
     {
@@ -1402,17 +1402,17 @@
       "width": 360,
       "height": 180,
       "strokeColor": "#10B981",
-      "backgroundColor": "#10B9811A",
+      "backgroundColor": "#10B98133",
       "fillStyle": "solid",
-      "strokeWidth": 1.5,
-      "roughness": 1,
+      "strokeWidth": 2,
+      "roughness": 0,
       "roundness": {
         "type": 3
       },
       "label": {
         "text": "Transaction confirmed",
-        "fontSize": 14,
-        "strokeColor": "#10B981",
+        "fontSize": 15,
+        "strokeColor": "#FFFFFF",
         "verticalAlign": "top"
       }
     },
@@ -1423,9 +1423,9 @@
       "width": 328,
       "height": 18,
       "text": "• Validator includes tx in block",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -1436,9 +1436,9 @@
       "width": 328,
       "height": 18,
       "text": "• Block reaches confirmed commitment (~0.5s)",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -1449,9 +1449,9 @@
       "width": 328,
       "height": 18,
       "text": "• State is now durable",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -1476,17 +1476,17 @@
       "width": 50,
       "height": 50,
       "strokeColor": "#D4A843",
-      "backgroundColor": "#D4A84333",
+      "backgroundColor": "#D4A843",
       "fillStyle": "solid",
       "strokeWidth": 2,
-      "roughness": 1,
+      "roughness": 0,
       "roundness": {
         "type": 3
       },
       "label": {
         "text": "13",
         "fontSize": 24,
-        "strokeColor": "#D4A843"
+        "strokeColor": "#0F0F0F"
       }
     },
     {
@@ -1497,17 +1497,17 @@
       "width": 360,
       "height": 180,
       "strokeColor": "#3B82F6",
-      "backgroundColor": "#3B82F61A",
+      "backgroundColor": "#3B82F633",
       "fillStyle": "solid",
-      "strokeWidth": 1.5,
-      "roughness": 1,
+      "strokeWidth": 2,
+      "roughness": 0,
       "roundness": {
         "type": 3
       },
       "label": {
         "text": "Poll confirmation",
-        "fontSize": 14,
-        "strokeColor": "#3B82F6",
+        "fontSize": 15,
+        "strokeColor": "#FFFFFF",
         "verticalAlign": "top"
       }
     },
@@ -1518,9 +1518,9 @@
       "width": 328,
       "height": 18,
       "text": "• Polls RPC every 2s (default)",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -1531,9 +1531,9 @@
       "width": 328,
       "height": 18,
       "text": "• Waits for confirmation at configured commitment",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -1544,9 +1544,9 @@
       "width": 328,
       "height": 18,
       "text": "• Parses signature + final block state",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -1584,17 +1584,17 @@
       "width": 50,
       "height": 50,
       "strokeColor": "#D4A843",
-      "backgroundColor": "#D4A84333",
+      "backgroundColor": "#D4A843",
       "fillStyle": "solid",
       "strokeWidth": 2,
-      "roughness": 1,
+      "roughness": 0,
       "roundness": {
         "type": 3
       },
       "label": {
         "text": "14",
         "fontSize": 24,
-        "strokeColor": "#D4A843"
+        "strokeColor": "#0F0F0F"
       }
     },
     {
@@ -1605,17 +1605,17 @@
       "width": 360,
       "height": 180,
       "strokeColor": "#3B82F6",
-      "backgroundColor": "#3B82F61A",
+      "backgroundColor": "#3B82F633",
       "fillStyle": "solid",
-      "strokeWidth": 1.5,
-      "roughness": 1,
+      "strokeWidth": 2,
+      "roughness": 0,
       "roundness": {
         "type": 3
       },
       "label": {
         "text": "Return result",
-        "fontSize": 14,
-        "strokeColor": "#3B82F6",
+        "fontSize": 15,
+        "strokeColor": "#FFFFFF",
         "verticalAlign": "top"
       }
     },
@@ -1626,9 +1626,9 @@
       "width": 328,
       "height": 18,
       "text": "• Returns { vaultAddress, policyAddress, signature }",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -1639,9 +1639,9 @@
       "width": 328,
       "height": 18,
       "text": "• Caller now has the addresses to reference",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -1666,17 +1666,17 @@
       "width": 50,
       "height": 50,
       "strokeColor": "#D4A843",
-      "backgroundColor": "#D4A84333",
+      "backgroundColor": "#D4A843",
       "fillStyle": "solid",
       "strokeWidth": 2,
-      "roughness": 1,
+      "roughness": 0,
       "roundness": {
         "type": 3
       },
       "label": {
         "text": "15",
         "fontSize": 24,
-        "strokeColor": "#D4A843"
+        "strokeColor": "#0F0F0F"
       }
     },
     {
@@ -1687,17 +1687,17 @@
       "width": 360,
       "height": 236,
       "strokeColor": "#D4A843",
-      "backgroundColor": "#D4A8431A",
+      "backgroundColor": "#D4A84333",
       "fillStyle": "solid",
-      "strokeWidth": 1.5,
-      "roughness": 1,
+      "strokeWidth": 2,
+      "roughness": 0,
       "roundness": {
         "type": 3
       },
       "label": {
         "text": "Result: Vault is live",
-        "fontSize": 14,
-        "strokeColor": "#D4A843",
+        "fontSize": 15,
+        "strokeColor": "#FFFFFF",
         "verticalAlign": "top"
       }
     },
@@ -1708,9 +1708,9 @@
       "width": 328,
       "height": 18,
       "text": "• Owner knows vault address (4ZeV...wrHL)",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -1721,9 +1721,9 @@
       "width": 328,
       "height": 18,
       "text": "• Agent is registered with spending authority",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -1734,9 +1734,9 @@
       "width": 328,
       "height": 36,
       "text": "• Next step: fund vault ATAs in a separate transaction",
-      "fontSize": 11,
+      "fontSize": 12,
       "fontFamily": 1,
-      "strokeColor": "#E5E7EB",
+      "strokeColor": "#F3F4F6",
       "opacity": 100,
       "autoResize": false
     },
@@ -1768,13 +1768,11 @@
     },
     {
       "type": "arrow",
-      "x": 290,
-      "y": 478,
-      "width": 10,
-      "height": 12,
+      "x": 110,
+      "y": 260,
       "strokeColor": "#D4A843",
       "strokeWidth": 2,
-      "roughness": 1,
+      "roughness": 0,
       "start": {
         "id": "step-card-1"
       },
@@ -1784,13 +1782,11 @@
     },
     {
       "type": "arrow",
-      "x": 290,
-      "y": 700,
-      "width": 398,
-      "height": 10,
+      "x": 110,
+      "y": 480,
       "strokeColor": "#D4A843",
       "strokeWidth": 2,
-      "roughness": 1,
+      "roughness": 0,
       "start": {
         "id": "step-card-2"
       },
@@ -1800,13 +1796,11 @@
     },
     {
       "type": "arrow",
-      "x": 678,
-      "y": 880,
-      "width": 10,
-      "height": 50,
+      "x": 498,
+      "y": 700,
       "strokeColor": "#D4A843",
       "strokeWidth": 2,
-      "roughness": 1,
+      "roughness": 0,
       "start": {
         "id": "step-card-3"
       },
@@ -1816,13 +1810,11 @@
     },
     {
       "type": "arrow",
-      "x": 678,
-      "y": 1150,
-      "width": 10,
-      "height": 20,
+      "x": 498,
+      "y": 920,
       "strokeColor": "#D4A843",
       "strokeWidth": 2,
-      "roughness": 1,
+      "roughness": 0,
       "start": {
         "id": "step-card-4"
       },
@@ -1832,13 +1824,11 @@
     },
     {
       "type": "arrow",
-      "x": 678,
-      "y": 1348,
-      "width": 398,
-      "height": 22,
+      "x": 498,
+      "y": 1140,
       "strokeColor": "#D4A843",
       "strokeWidth": 2,
-      "roughness": 1,
+      "roughness": 0,
       "start": {
         "id": "step-card-5"
       },
@@ -1848,13 +1838,11 @@
     },
     {
       "type": "arrow",
-      "x": 290,
-      "y": 1540,
-      "width": 398,
-      "height": 50,
+      "x": 110,
+      "y": 1360,
       "strokeColor": "#D4A843",
       "strokeWidth": 2,
-      "roughness": 1,
+      "roughness": 0,
       "start": {
         "id": "step-card-6"
       },
@@ -1864,13 +1852,11 @@
     },
     {
       "type": "arrow",
-      "x": 678,
-      "y": 1770,
-      "width": 398,
-      "height": 40,
+      "x": 498,
+      "y": 1580,
       "strokeColor": "#D4A843",
       "strokeWidth": 2,
-      "roughness": 1,
+      "roughness": 0,
       "start": {
         "id": "step-card-7"
       },
@@ -1880,13 +1866,11 @@
     },
     {
       "type": "arrow",
-      "x": 1066,
-      "y": 2030,
-      "width": 398,
-      "height": 20,
+      "x": 886,
+      "y": 1800,
       "strokeColor": "#D4A843",
       "strokeWidth": 2,
-      "roughness": 1,
+      "roughness": 0,
       "start": {
         "id": "step-card-8"
       },
@@ -1896,13 +1880,11 @@
     },
     {
       "type": "arrow",
-      "x": 1454,
-      "y": 2200,
-      "width": 398,
-      "height": 50,
+      "x": 1274,
+      "y": 2020,
       "strokeColor": "#D4A843",
       "strokeWidth": 2,
-      "roughness": 1,
+      "roughness": 0,
       "start": {
         "id": "step-card-9"
       },
@@ -1912,13 +1894,11 @@
     },
     {
       "type": "arrow",
-      "x": 1066,
-      "y": 2518,
-      "width": 398,
-      "height": 68,
+      "x": 886,
+      "y": 2240,
       "strokeColor": "#D4A843",
       "strokeWidth": 2,
-      "roughness": 1,
+      "roughness": 0,
       "start": {
         "id": "step-card-10"
       },
@@ -1928,13 +1908,11 @@
     },
     {
       "type": "arrow",
-      "x": 1454,
-      "y": 2640,
-      "width": 398,
-      "height": 50,
+      "x": 1274,
+      "y": 2460,
       "strokeColor": "#D4A843",
       "strokeWidth": 2,
-      "roughness": 1,
+      "roughness": 0,
       "start": {
         "id": "step-card-11"
       },
@@ -1944,13 +1922,11 @@
     },
     {
       "type": "arrow",
-      "x": 1066,
-      "y": 2860,
-      "width": 398,
-      "height": 50,
+      "x": 886,
+      "y": 2680,
       "strokeColor": "#D4A843",
       "strokeWidth": 2,
-      "roughness": 1,
+      "roughness": 0,
       "start": {
         "id": "step-card-12"
       },
@@ -1960,13 +1936,11 @@
     },
     {
       "type": "arrow",
-      "x": 678,
-      "y": 3080,
-      "width": 10,
-      "height": 50,
+      "x": 498,
+      "y": 2900,
       "strokeColor": "#D4A843",
       "strokeWidth": 2,
-      "roughness": 1,
+      "roughness": 0,
       "start": {
         "id": "step-card-13"
       },
@@ -1976,13 +1950,11 @@
     },
     {
       "type": "arrow",
-      "x": 678,
-      "y": 3300,
-      "width": 398,
-      "height": 50,
+      "x": 498,
+      "y": 3120,
       "strokeColor": "#D4A843",
       "strokeWidth": 2,
-      "roughness": 1,
+      "roughness": 0,
       "start": {
         "id": "step-card-14"
       },
@@ -1994,5 +1966,5 @@
   "appState": {
     "viewBackgroundColor": "#0F0F0F"
   },
-  "savedAt": "2026-04-16T19:09:22.520Z"
+  "savedAt": "2026-04-17T02:06:47.747Z"
 }

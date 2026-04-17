@@ -2,14 +2,12 @@ import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { notFound } from 'next/navigation';
 import ExcalidrawWrapper from '@/components/ExcalidrawWrapper';
-import NavMenu from '@/components/NavMenu';
 import { listSnapshots } from '@/lib/list-snapshots';
 
 /**
  * Snapshot viewer route — loads a committed .excalidraw.json file from
- * the /snapshots directory. Used for the collaboration workflow:
- * Don commits a snapshot to propose an architecture change, Kaleb views
- * it at /s/[name], annotates, and commits his feedback back.
+ * the /snapshots directory. Navigation between views lives inside
+ * Excalidraw's MainMenu (Views submenu).
  */
 
 interface PageProps {
@@ -19,7 +17,7 @@ interface PageProps {
 export default async function SnapshotPage({ params }: PageProps) {
   const { name } = await params;
 
-  // Prevent directory traversal — only allow alphanumeric + dash + underscore
+  // Prevent directory traversal
   if (!/^[a-zA-Z0-9_-]+$/.test(name)) {
     notFound();
   }
@@ -43,17 +41,20 @@ export default async function SnapshotPage({ params }: PageProps) {
     notFound();
   }
 
-  const allSnapshots = await listSnapshots();
+  const snapshots = await listSnapshots();
 
   return (
     <main style={{ width: '100vw', height: '100vh', position: 'relative' }}>
-      <ExcalidrawWrapper snapshotKey={name} initialSnapshot={snapshot} />
-      <NavMenu currentSlug={name} snapshots={allSnapshots} />
+      <ExcalidrawWrapper
+        snapshotKey={name}
+        initialSnapshot={snapshot}
+        snapshots={snapshots}
+      />
     </main>
   );
 }
 
-// Pre-generate static params for known snapshots so they're cacheable
+// Pre-generate static params for known snapshots
 export async function generateStaticParams() {
   try {
     const { readdir } = await import('node:fs/promises');

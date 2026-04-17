@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { generateElements } from '@/lib/generate-elements';
+import type { SnapshotEntry } from '@/lib/list-snapshots';
 
 /**
  * ExcalidrawWrapper — state + persistence layer on top of the Excalidraw
@@ -61,11 +62,14 @@ export interface ExcalidrawWrapperProps {
   snapshotKey?: string;
   /** Optional pre-loaded snapshot (used by /s/[name] routes). */
   initialSnapshot?: Snapshot;
+  /** All available snapshots — piped into the Views submenu in MainMenu. */
+  snapshots?: SnapshotEntry[];
 }
 
 export default function ExcalidrawWrapper({
   snapshotKey = 'canonical',
   initialSnapshot,
+  snapshots = [],
 }: ExcalidrawWrapperProps) {
   // Canonical architecture rendered from current code data
   const canonical = useMemo(() => generateElements(), []);
@@ -242,8 +246,30 @@ export default function ExcalidrawWrapper({
         onExportJSON={handleExportJSON}
         onImportJSON={handleImportJSON}
         onReset={handleReset}
+        currentSlug={snapshotKey}
+        snapshots={snapshots}
       />
-      {/* Navigation is rendered by the parent page via NavMenu */}
+      {/* Current view label — small, unobtrusive, bottom-left */}
+      <div
+        style={{
+          position: 'absolute',
+          bottom: 12,
+          left: 12,
+          zIndex: 10,
+          color: '#D4A843',
+          fontFamily: 'monospace',
+          fontSize: 11,
+          background: 'rgba(15, 15, 15, 0.7)',
+          padding: '4px 8px',
+          borderRadius: 4,
+          border: '1px solid rgba(212, 168, 67, 0.4)',
+          pointerEvents: 'none',
+        }}
+      >
+        {snapshotKey === 'canonical'
+          ? 'canonical'
+          : snapshots.find((s) => s.slug === snapshotKey)?.label ?? snapshotKey}
+      </div>
     </div>
   );
 }
